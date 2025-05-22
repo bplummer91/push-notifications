@@ -30,7 +30,10 @@ function App() {
         serviceWorkerParam: { scope: "/" },
         autoResubscribe: true,
         autoRegister: false,
-        allowLocalhostAsSecureOrigin: true // Enable localhost testing
+        allowLocalhostAsSecureOrigin: true,
+        origin: window.location.origin.includes('localhost') || window.location.origin.includes('webcontainer') 
+          ? window.location.origin 
+          : "https://push-notifications-2to4.vercel.app"
       });
 
       OneSignal.Notifications.addEventListener("permissionPromptDisplay", () => {
