@@ -30,6 +30,7 @@ function App() {
         serviceWorkerParam: { scope: "/" },
         autoResubscribe: true,
         autoRegister: false,
+        allowLocalhostAsSecureOrigin: true // Enable localhost testing
       });
 
       OneSignal.Notifications.addEventListener("permissionPromptDisplay", () => {
